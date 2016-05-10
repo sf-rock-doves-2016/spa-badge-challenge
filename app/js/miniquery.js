@@ -47,7 +47,8 @@ var EventDispatcher = (function(){
 
   return{
     on: function(namespace, childSelector, anonymousFunction){
-      document.addEventListener(childSelector, anonymousFunction);
+      var element = SweetSelector.select(namespace);
+      element.addEventListener(childSelector, anonymousFunction);
     },
 
     trigger: function(namespace, childSelector){

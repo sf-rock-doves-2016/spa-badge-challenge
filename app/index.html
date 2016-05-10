@@ -12,17 +12,12 @@
       <h1> SPA Badge </h1>
     </div>
     <h1> SF Teachers </h1>
-      <ul>
-        <li><a href="#Derek">Derek</a></li>
-        <li><a href="#Hunter">Hunter</a></li>
-        <li><a href="#Jaclyn">Jaclyn</a></li>
-        <li><a href="#Julian">Julian</a></li>
-        <li><a href="#Mihai">Mihai</a></li>
-        <li><a href="#Sarah">Sarah</a></li>
-        <li><a href="#Seba">Seba</a></li>
-        <li><a href="#Shambhavi">Shambhavi</a></li>
-        <li><a href="#Walker">Walker</a></li>
-        <li><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
+      <ul id="teacher-unordered-list">
+        <script id="teacher-link-template" type="text/x-handlebars-template">
+         {{#each teacherObjs}}
+          <li><a href="#<{{ name }}" id="{{ id }}">{{ name }}</a></li>
+         {{/each}}
+        </script>
       </ul>
   </div>
 </body>

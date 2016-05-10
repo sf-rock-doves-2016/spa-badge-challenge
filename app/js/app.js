@@ -10,20 +10,33 @@
 
 // This should not be a self-invoking function. It needs to be triggered by the click event
 
-$(function (){
-  // Grab the template script
-  var teacherHeaderTemplate = $("#teacher-list").html();
-  // Compile the template
-  var teacherHeader = Handlebars.compile(teacherHeaderTemplate);
-  // Define our data
-  var teacherName = {
-    "name": "" // This needs to come from the miniquery sweetSelector and Dispatcher modules
-  };
-  // Pass data to the template
-  car compiledTeacherHeaderHtml = teacherHeader(teacherName);
-  // Add the compiled teacher name to the page header
-  $('.show-user').html(compiledTeacherHeaderHtml);
-});
+var listTeachers = function() {
+
+  AjaxWrapper.request({
+    url: 'https://spa-badge-api.herokuapp.com/teachers',
+    type: 'GET'
+  }).then(function(response) {
+    var teachers = JSON.parse(response);
+    // Grab the template script
+    var teacherHeaderTemplate = SweetSelector.select("#teacher-link-template").innerHTML;
+
+    // Compile the template
+    var teacherHeader = Handlebars.compile(teacherHeaderTemplate);
+
+    // Define our data
+    var context ={
+
+      teacherObjs: teachers
+    }
+    // Pass data to the template
+    var compiledTeacherHeaderHtml = teacherHeader(context);
+    // Add the compiled teacher name to the page header
+    debugger;
+
+    // $('.show-user').html(compiledTeacherHeaderHtml);
+  })
+
+};
 
 
 
