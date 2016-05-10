@@ -3,6 +3,8 @@
 <head>
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="js/app.js"></script>
+  <script src="js/miniquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
   <title>SPABadge</title>
 </head>
 
@@ -13,8 +15,9 @@
     </div>
     <h1>Words To Be Remembered By</h1>
     <div class="show-user">
-      <h2> Walker's Badges </h2>
-
+      <script id="teacher-list" type="text/x-handlebars-template">
+        <h2> {{}}'s Badges </h2>
+      </script>
       <div id="1" class="slogan">
         <div class="body">1) DBC Guru</div>
         <div class="vote-on">
