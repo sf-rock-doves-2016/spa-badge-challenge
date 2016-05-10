@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+  <script src="js/miniQuery.js"></script>
   <script src="js/app.js"></script>
   <title>SPABadge</title>
 </head>
+
 <body>
+
+  <script id="sample-template" type="text/x-handlebars-template">
+    <h1>Words To Be Remembered By</h1>
+    <div class="show-user">
+      <h2> {{name}}'s Badges </h2>
+        <a href="spa-badge.html"> HOME </a>
+  </script>
+
   <div class="container">
     <div class="logo">
       <h1> SPA Badge </h1>
     </div>
-    <h1> SF Teachers </h1>
-      <ul>
-        <li><a href="#">Derek</a></li>
-        <li><a href="#">Hunter</a></li>
-        <li><a href="#">Jaclyn</a></li>
-        <li><a href="#">Julian</a></li>
-        <li><a href="#">Mihai</a></li>
-        <li><a href="#">Sarah</a></li>
-        <li><a href="#">Seba</a></li>
-        <li><a href="#">Shambhavi</a></li>
-        <li><a href="#">Walker</a></li>
-        <li><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
-      </ul>
+
+    <div class="content-placeholder"></div>
+
+    <div class="homepage-content">
+      <h1> SF Teachers </h1>
+        <ul>
+          <li class="teacher" id="1"><a href="#Derek">Derek</a></li>
+          <li class="teacher" id="2"><a href="#Hunter">Hunter</a></li>
+          <li class="teacher" id="3"><a href="#Jaclyn">Jaclyn</a></li>
+          <li class="teacher" id="4"><a href="#Julian">Julian</a></li>
+          <li class="teacher" id="5"><a href="#Mihai">Mihai</a></li>
+          <li class="teacher" id="6"><a href="#Sarah">Sarah</a></li>
+          <li class="teacher" id="7"><a href="#Seba">Seba</a></li>
+          <li class="teacher" id="8"><a href="#Shambhavi">Shambhavi</a></li>
+          <li class="teacher" id="9"><a href="#Walker">Walker</a></li>
+          <li id="Sample"><a href="sample-page.html">Sample Page (to see what the badges view should look like)</a></li>
+        </ul>
+      </div>
+
   </div>
 </body>
 </html>
