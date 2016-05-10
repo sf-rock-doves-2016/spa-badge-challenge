@@ -39,11 +39,23 @@
         </form>
       </div>
       <div class="points">
-        ({{points}} points)
+        ({{votes}} points)
       </div>
     </div>
     {{/each}}
-    <a href="spa-badge.html"> HOME </a>
+  </script>
+
+  <script id="add-badge-template" type="text/x-handlebars-template">
+    <div class="add-badge">
+          <h3> Add a Badge: </h3>
+          <form action="#">
+            <input type="hidden" name="user_id" value="5" />
+            <input type="text" name="content" />
+            <input type="image" src="img/add_button.png" alt="Add Slogan" />
+          </form>
+          <br>
+          <a href="spa-badge.html"> HOME </a>
+    </div>
   </script>
 
   <div class="container">
@@ -53,6 +65,7 @@
 
     <div class="sample-placeholder"></div>
     <div class="badge-placeholder"></div>
+    <div class="badge-add-placeholder"></div>
 
     <div class="homepage-content">
       <h1> SF Teachers </h1>

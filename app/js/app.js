@@ -54,6 +54,17 @@ document.addEventListener("DOMContentLoaded", function(event){
         $('.badge-placeholder').html(theCompiledHtml);
       });
 
+      $(function () {
+        // Grab the template script
+        var theTemplateScript = $("#add-badge-template").html();
+
+        // Compile the template
+        var theTemplate = Handlebars.compile(theTemplateScript);
+
+        // Add the compiled html to the page
+        $('.badge-add-placeholder').html(theTemplate);
+      });
+
 
     }).catch(function() {
 
