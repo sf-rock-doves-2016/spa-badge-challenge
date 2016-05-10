@@ -10,8 +10,7 @@
 
 // This should not be a self-invoking function. It needs to be triggered by the click event
 
-var listTeachers = function() {
-
+var listTeachers = function(){
   AjaxWrapper.request({
     url: 'https://spa-badge-api.herokuapp.com/teachers',
     type: 'GET'
@@ -31,12 +30,16 @@ var listTeachers = function() {
     // Pass data to the template
     var compiledTeacherHeaderHtml = teacherHeader(context);
     // Add the compiled teacher name to the page header
-    debugger;
-
+    // listTeachers();
+    SweetSelector.select("#teacher-unordered-list").innerHTML=compiledTeacherHeaderHtml;
+      debugger
     // $('.show-user').html(compiledTeacherHeaderHtml);
   })
+}
 
-};
+// document ready
+//   listTeachers();
+//   logic...
 
 
 
