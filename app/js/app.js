@@ -2,7 +2,7 @@
 
 // Show specific teacher
 
-// Listen for event on teacher (clikc)
+// Listen for event on teacher (click)
 // Hide the body of the index.html
 // Show the sample-page.html for the selected teacher
 // Use miniquery sweetSelector and dispatcher modules to run handlebar module below
@@ -32,33 +32,34 @@ var listTeachers = function(){
     // Add the compiled teacher name to the page header
     // listTeachers();
     SweetSelector.select("#teacher-unordered-list").innerHTML=compiledTeacherHeaderHtml;
-      debugger
     // $('.show-user').html(compiledTeacherHeaderHtml);
   })
+  showTeacherNameListener();
 }
 
 // document ready
 //   listTeachers();
 //   logic...
 
-// Listen for click event on the teacher ul and set the a tag as the child selector
-// miniquery.
-//
-var nameListner= function (){
-  EventDispatcher.on('click','a' )
-  var id = event.
+// var showTeacher = function(){
+//  var selectedTeacher = EventDispatcher.on({
+//   )}
+// }
 
+var showTeacherNameListener = function(){
+    console.log("yaaay");
+    miniQuery.on('teacher-unordered-list a','click',function(e){
+      e.preventDefault();
+    var id = parseInt(this.id);
+    getTeacherBadges(id);
+  });
 }
-var showTeacher = function(){
- var selectedTeacher = EventDispatcher.on({
-
-
-  )}
-
-
-
-
+var getTeacherBadges = function(id){
+  AjaxWrapper.request({
+    url: "https://spa-badge-api.herokuapp.com/teachers"+id,
+    type: "GET"
+  }).then(function(response){
+    console.log("getTeacherBadges success");
+    var badgeObjects = JSON.parse(response);
+  });
 }
-
-
-
