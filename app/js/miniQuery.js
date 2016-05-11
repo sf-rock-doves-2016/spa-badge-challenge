@@ -102,9 +102,13 @@ var miniQuery = (function(){
     });
   }
 
-  exports.append = function(container, new_div){
+  exports.append = function(container, strObj){
     // The innerHTML method overwrites the existing anchor tags. This clears any event listeners. Needs to be converted to .appendChild.
-    miniQuery.select(container)[0].innerHTML += new_div
+    var parentObj = miniQuery.select(container)[0]
+    var newDiv = document.createElement('div')
+    newDiv.innerHTML = strObj
+    newDiv.classList.add('teacherPage')
+    parentObj.appendChild(newDiv)
   }
 
   return exports

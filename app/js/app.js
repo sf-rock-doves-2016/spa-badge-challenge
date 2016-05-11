@@ -1,16 +1,16 @@
 miniQuery.ready(function() {
     miniQuery.on('.instructor','click',function(){
       console.log('HIT')
-      var instructor_id = this.id
+      var instructorId = this.id
       miniQuery.request({
-        url: 'http://spa-badge-api.herokuapp.com/teachers/' + instructor_id,
+        url: 'http://spa-badge-api.herokuapp.com/teachers/' + instructorId,
         type: 'get'
       }).then(function(response){
         // miniQuery.hide('#teacherList')
+        console.log(response)
         var teacherJSON = JSON.parse(response)
         var teacherPage = teacherDiv(teacherJSON)
-        // miniQuery.append('.container', teacherPage)
-        miniQuery.select('.container')[0].innerHTML += teacherPage
+        miniQuery.append('.container', teacherPage)
       }).catch(function(error){
         console.log(error)
       })
@@ -18,9 +18,8 @@ miniQuery.ready(function() {
 
 
 
-    function teacherDiv(json_obj){
-      var dom_string = "<div class='teacherPage'><h1>" + json_obj.name + "</h1></div>"
-
+    function teacherDiv(jsonObj){
+      return "<h1>" + jsonObj.name + "</h1>"
     }
 
 
