@@ -102,6 +102,11 @@ var miniQuery = (function(){
     });
   }
 
+  exports.append = function(container, new_div){
+    // The innerHTML method overwrites the existing anchor tags. This clears any event listeners. Needs to be converted to .appendChild.
+    miniQuery.select(container)[0].innerHTML += new_div
+  }
+
   return exports
 
 })();
