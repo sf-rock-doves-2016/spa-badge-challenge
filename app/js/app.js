@@ -41,5 +41,24 @@ var listTeachers = function(){
 //   listTeachers();
 //   logic...
 
+// Listen for click event on the teacher ul and set the a tag as the child selector
+// miniquery.
+//
+var nameListner= function (){
+  EventDispatcher.on('click','a' )
+  var id = event.
+
+}
+var showTeacher = function(){
+ var selectedTeacher = EventDispatcher.on({
+
+
+  )}
+
+
+
+
+}
+
 
 
