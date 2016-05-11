@@ -48,10 +48,10 @@
   <script id="add-badge-template" type="text/x-handlebars-template">
     <div class="add-badge">
           <h3> Add a Badge: </h3>
-          <form action="#">
-            <input type="hidden" name="user_id" value="5" />
+          <form class="submit-form" action="#">
+            <input type="hidden" name="user_id" value="{{id}}" />
             <input type="text" name="content" />
-            <input type="image" src="img/add_button.png" alt="Add Slogan" />
+            <input type="submit" src="img/add_button.png" alt="Add Slogan" value="Add Slogan" />
           </form>
           <br>
           <a href="spa-badge.html"> HOME </a>
