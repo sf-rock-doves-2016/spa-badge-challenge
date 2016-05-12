@@ -1,31 +1,39 @@
 document.addEventListener("DOMContentLoaded", function(){
-  // EventDispatcher.on("click", function(){
-  //   console.log("click");
-  // });
 
+  SweetSelector.ajaxClone({
+    url:'http://localhost:3000/teachers',
+    method: 'GET'
+  }).then(function(response){
+    var list = SweetSelector.select("#teacher-list");
+    var teachers = JSON.parse(response);
+    for (var i = 0; i < teachers.length; i++){
+      var listItem = document.createElement("li");
+      listItem.innerHTML = "<a href='#"+teachers[i].id+"'>"+teachers[i].name+"</a>"
+      list.appendChild(listItem);
+    }
+    EventDispatcher.on('a', 'click', function(e){
+      e.preventDefault();
+      DOM.hide('.teachers')
+      DOM.hide("#teacher-list");
+      var teacherID = this.getAttribute('href').slice(1);
+      SweetSelector.ajaxClone({
+        url:'http://localhost:3000/teachers/' + teacherID,
+        method: 'GET'
+      }).then(function(response){
+        var container = SweetSelector.select("container");
 
-  // var listTeachers = function () {
-    SweetSelector.ajaxClone({
-      url:'http://localhost:3000/teachers',
-      method: 'GET'
-    }).then(function(response){
-      console.log(response)
-      var list = SweetSelector.select("#teacher-list");
-      console.log(list)
-      var teachers = JSON.parse(response);
-      console.log(teachers)
-      for (var i = 0; i < teachers.length; i++){
-        var listItem = document.createElement("li");
-        listItem.innerHTML = "<a href='#"+teachers[i].name+"'>"+teachers[i].name+"</a>"
-        list.appendChild(listItem);
-      }
-    }).catch(function(error){
-      console.log(error);
+      }).catch(function(error){
+        console.log(error);
+      });
     });
-  // }
 
+
+  }).catch(function(error){
+    console.log(error);
+  });
 
 });
+
 // var cookies = document.cookie.split(";")
 // var vote = badgeID + '=upvote'
 // if (cookies.includes(vote)) {
@@ -47,7 +55,3 @@ document.addEventListener("DOMContentLoaded", function(){
 //   })
 // }
 
-// var showTeacherPage = function(teacherID) {
-//   ajax request to get the data
-//   .then(function(response) {})
-// }
